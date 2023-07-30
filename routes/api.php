@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,10 @@ Route::middleware('auth:api')->group(function(){
   Route::get('/students/{id}', [StudentController::class, 'show']);
   Route::put('/students/{id}', [StudentController::class, 'update']);
   Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+
+  Route::get('/teachers', [TeacherController::class, 'index']);
+  Route::post('/teachers', [TeacherController::class,'store']);
+  Route::get('/teachers/{id}', [TeacherController::class, 'show']);
+  Route::put('/teachers/{id}', [TeacherController::class, 'update']);
+  Route::delete('/teachers/{id}', [TeacherController::class, 'destroy']);
 });
